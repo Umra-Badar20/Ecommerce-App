@@ -7,10 +7,10 @@ import * as Yup from "yup";
 // Validation Schema (Same as Backend Joi)
 const validationSchema = Yup.object({
   name: Yup.string()
-    .matches(/^[a-zA-Z0-9]+$/, "Username can only contain letters and numbers (No spaces or special characters)")
-    .min(3, "Username must be at least 3 characters long")
-    .max(20, "Username cannot exceed 20 characters")
-    .required("Username is required"),
+    .matches(/^[a-zA-Z0-9]+$/, "name can only contain letters and numbers (No spaces or special characters)")
+    .min(3, "name must be at least 3 characters long")
+    .max(20, "name cannot exceed 20 characters")
+    .required("name is required"),
 
     email: Yup.string()
     .email("Enter a valid email address (e.g., example@domain.com)")
@@ -39,13 +39,13 @@ const Signup = () => {
 
         {/* ✅ Formik Handling */}
         <Formik
-          initialValues={{ username: "", email: "", password: "" }}
+          initialValues={{ name: "", email: "", password: "" }}
           validationSchema={validationSchema}
           onSubmit={async (values) => {
             setLoading(true);
-            console.log(values);
+            console.log("values:",values);
             try {
-              const response = await fetch("http://localhost:5000/api/createUser", {
+              const response = await fetch("http://localhost:5000/api/user", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(values),
@@ -68,12 +68,12 @@ const Signup = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700">Your Name</label>
               <Field
-                name="username"
+                name="name"
                 type="text"
                 className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter your name"
               />
-              <ErrorMessage name="username" component="p" className="text-red-500 text-sm" />
+              <ErrorMessage name="name" component="p" className="text-red-500 text-sm" />
             </div>
 
             <div>

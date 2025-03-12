@@ -24,7 +24,7 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setLoading(true);
-		console.log(formData);
+		console.log("formdata:",formData);
 
 		try {
 			const response = await fetch('http://localhost:5000/api/user/login', {
