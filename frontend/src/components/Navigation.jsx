@@ -23,6 +23,7 @@ const Navigation = () => {
 					<div className='hidden sm:flex space-x-6'>
 						<NavLink to='/' icon={<FaHome />} text='Home' />
 						<NavLink to='/products' text='Products' />
+						<NavLink to='/profile' text='Profile' />
 						<NavLink to='/about' text='About' />
 						<NavLink to='/contact' text='Contact' />
 						<NavLink to='/signup' text='Sign Up' />
