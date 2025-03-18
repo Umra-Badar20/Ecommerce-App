@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom"; // Import Link for routing
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo (4).png";
 import { useSelector } from "react-redux";
 
 const Navigation = () => {

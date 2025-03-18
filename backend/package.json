@@ -1,17 +1,16 @@
 {
-  "name": "class4",
+  "name": "class6",
   "version": "1.0.0",
-  "main": "app.mjs",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.mjs",
-    "dev": "nodemon app.mjs"
+    "start": "node index.mjs",
+    "dev": "nodemon index.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "chalk": "^5.4.1",
@@ -20,8 +19,7 @@
     "express": "^4.21.2",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.12.1",
-    "nanoid": "^5.1.2",
+    "mongoose": "^8.11.0",
     "nodemon": "^3.1.9"
   }
 }

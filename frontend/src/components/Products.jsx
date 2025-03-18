@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Modal from './Modal';
-import ConfirmationModal from './ConfirmationModal';
-
-
 
 const Products = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,8 +8,8 @@ const Products = () => {
 	const [products, setProducts] = useState([]);
 	const [selectedProduct, setSelectedProduct] = useState(null);
 
-	//const API_URL = 'http://localhost:5000/api/products';
-	const API_URL = 'https://fakestoreapi.com/products';
+	const API_URL = 'http://localhost:5000/api/products';
+
 	// const fetchProducts = async () => {
 	//   try {
 	//     const response = await fetch(`${API_URL}`, {
@@ -39,7 +35,7 @@ const Products = () => {
 	const fetchProducts = async () => {
 		try {
 			const response = await fetch(`${API_URL}`, {
-				//credentials: 'include',
+				credentials: 'include',
 				method: 'GET',
 			});
 
@@ -47,8 +43,8 @@ const Products = () => {
 
 			const data = await response.json();
 
-			if ( Array.isArray(data)) {
-				setProducts(data);
+			if (data.success && Array.isArray(data.products)) {
+				setProducts(data.products);
 
 				// ✅ Log all product details
 				console.log('Fetched Products:', JSON.stringify(data.products, null, 2));
