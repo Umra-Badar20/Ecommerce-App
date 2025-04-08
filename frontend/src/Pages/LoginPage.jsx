@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../store/authSlice';
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 const Login = () => {
 	const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ const Login = () => {
 		console.log(formData);
 
 		try {
-			const response = await fetch('http://localhost:5000/api/auth/user/login', {
+			const response = await fetch(`${apiUrl}/auth/user/login`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(formData),
@@ -40,7 +41,7 @@ const Login = () => {
 			setLoading(false);
 			if (response.ok) {
 				localStorage.setItem("token",data.token)
-				localStorage.setItem("userId",data.user.id)
+				localStorage.setItem("userId",data._id)
 				dispatch(loginSuccess({
 					token:data.token,
 					userId:data.userId

@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
 import 'dotenv/config'
 import chalk from 'chalk';
-const url =`${process.env.MONGO_URL}`
+
+const dbName = `${process.env.db_name}`; 
+const url = `${process.env.MONGO_URL}/${dbName}`;
 
 const connectToDB=async()=>{
     mongoose.connection.on("open", () => {
@@ -11,7 +13,6 @@ const connectToDB=async()=>{
       console.error(chalk.bold.bgRed("Error in connecting MongoDB"));
     });
 }
-
 mongoose.connect(url)
 export default connectToDB;
 

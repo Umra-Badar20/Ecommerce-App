@@ -1,3 +1,7 @@
 export const getCart=(req,res)=>{
-    res.send("coming to cart page")
- }
+    console.log(req.user)
+    res.status(200).json({
+        message: "cart data fetched successfully",
+        success:true
+    })
+}

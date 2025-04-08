@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import * as Yup from "yup";
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 // Validation Schema (Same as Backend Joi)
 const validationSchema = Yup.object({
@@ -46,7 +47,7 @@ const Signup = () => {
             setLoading(true);
             console.log("values:", values);
             try {
-              const response = await fetch("http://localhost:5000/api/auth/user", {
+              const response = await fetch(`${apiUrl}/auth/user`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(values),
@@ -54,13 +55,13 @@ const Signup = () => {
 
               const data = await response.json();
               setLoading(false);
-              console.log("Response:", response,"data", data);
-              
-              if (response.ok) {
+              console.log("Response:", response, "data", data);
+              if (response.ok) {  
                 toast.success(data.message);
-                navigate("/");
-              }else{
-                toast.error(data.message || "An error occurred while signing up");}
+                navigate('/');
+              } else {
+                toast.error(data.message || "An error occurred while signing up");
+              }
             } catch (error) {
               setLoading(false);
               console.log("Error:", error);
@@ -105,7 +106,7 @@ const Signup = () => {
                   className='absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 focus:outline-none'
                   onClick={() => { setShowPassword(!showPassword) }}
                 >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
                 <ErrorMessage name="password" component="p" className="text-red-500 text-sm" />
               </div>

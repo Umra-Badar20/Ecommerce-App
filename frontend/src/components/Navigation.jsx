@@ -35,6 +35,7 @@ const Navigation = () => {
 
           <div className="hidden sm:flex space-x-6 ">
             <NavLink to="/" icon={faHome} text="Home" />
+            {isAuthenticated && <NavLink to="/profile" text="Profile" />}
             <NavLink to="/products" text="Products" />
             <NavLink to="/about" text="About" />
             <NavLink to="/contact" text="Contact" />
@@ -83,6 +84,7 @@ const Navigation = () => {
         <div className="px-4 pt-2 pb-3 space-y-2">
           <NavLinkMobile to="/" text="Home" onClick={toggleMenu} />
           <NavLinkMobile to="/products" text="Products" onClick={toggleMenu} />
+          {isAuthenticated && <NavLinkMobile to="/profile" text="Profile" onClick={toggleMenu} />}
           <NavLinkMobile to="/about" text="About" onClick={toggleMenu} />
           <NavLinkMobile to="/contact" text="Contact" onClick={toggleMenu} />
           <NavLinkMobile to="/signup" text="Sign Up" />
