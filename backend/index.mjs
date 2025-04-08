@@ -18,7 +18,7 @@ app.use(
 			'http://localhost:5174',
 			'http://localhost:5173',
 			'https://ecommerce-app-three-phi.vercel.app/',
-			'https://ecommerce-app-production-fbc7.up.railway.app/'
+			'https://ecommerce-app-production-fbc7.up.railway.app'
 		],
 		methods: ['GET', 'PUT', 'POST', 'DELETE'],
 		credentials: true,
